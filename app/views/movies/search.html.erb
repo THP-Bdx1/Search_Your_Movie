@@ -1,0 +1,24 @@
+<h1>Ta recherche !</h1>
+    <% if @movie_infos == [] %>
+        <p>La recherche cherche encore et toujours...<br>Mais en fait il n'y a rien !</p>
+        <img src="https://media.giphy.com/media/d4bn3nUNo6XpUZ4A/giphy.gif">
+    <% else %>
+    <% c=0 %>
+    <% @movie_infos.each do |movie| %>
+    <%if c<20 %>
+            <h2><%= movie["title"]%></h2>
+            <h3>Réalisateur : <%= movie["Director"]%></h3>
+            <br>
+            <h3>Date de sortie : <%= movie["release_date"]%></h3>
+            <img src = <%=movie["image"]%> >
+            <hr>
+            <% c +=1 %>
+    <%else%>
+    <%break%>
+        <% end %>
+    <%end%>
+<%end%>
+<a href="/" class="btn btn-outline-dark">Retourne faire d'autres recherches !</a>
+
+
+

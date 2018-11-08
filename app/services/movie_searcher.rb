@@ -2,7 +2,7 @@ require 'pry'
 class MovieSearcher
 
     def initialize(movie_name)
-        @client = Tmdb::Api.key(Rails.application.credentials.dig(:TMDB_API))
+        @client = Tmdb::Api.key(ENV[“RAILS_MASTER_KEY”])
         configuration = Tmdb::Configuration.new
         configuration.base_url
         configuration.secure_base_url
